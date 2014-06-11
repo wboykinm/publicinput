@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<title>Mobile Collector</title>
-  	<link href="http://netdna.bootstrapcdn.com/bootswatch/3.0.0/cosmo/bootstrap.min.css" rel="stylesheet">
+  	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.1.1/darkly/bootstrap.min.css" rel="stylesheet">
 		<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
   	<style>
   		.starter-template {
@@ -55,17 +55,17 @@ onload="if(submitted) {window.location='http://cdb.io/1be11H7';}"></iframe>
 
 	  		<div class="starter-template">
 	  			<h2><em>(1) </em>What's your favorite Vermont brew?<h2>
-	  			<div class="btn-group">
-				  <button type="button" class="btn btn-xl btn-info">Switchback</button>
+	  			<div class="btn-group-vertical">
+				  <button type="button" class="btn btn-xl btn-primary">Switchback</button>
 				  <button type="button" class="btn btn-xl btn-info">#9</button>
-				  <button type="button" class="btn btn-xl btn-info">Heady Topper</button>
+				  <button type="button" class="btn btn-xl btn-primary">Heady Topper</button>
 				  <button type="button" class="btn btn-xl btn-info">If I tell you, it won't be hip and edgy anymore</button>
 				</div>
 	  		</div>
 	  		<div class="starter-template">
 	  			<h2><em>(2) </em>Where did you wake up this morning?<h2>
 	  			<p><small>Drag the map to center the marker on the general location</small></p>
-	  			<div id="map">
+	  			<div id="map" class="dark">
 	  				<span id="centerpoint" class="" style="display: inline;">
 	  					<span class="shadow"></span>
 	  					<span class="x"></span>
@@ -99,20 +99,24 @@ onload="if(submitted) {window.location='http://cdb.io/1be11H7';}"></iframe>
   	</form>
 
   	<script src='http://codeorigin.jquery.com/jquery-1.10.2.min.js'></script>
-  	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+  	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   	<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
 		<script type='text/javascript'>
 	  // Set default location in case the IP doesn't have one
 	  var y = 40.8;
 	  var x = -96.67;
 	  // Grab IP location from freegeoip API
-	  $.getJSON('http://freegeoip.net/json/', function(json) {
+	  $.ajax( { 
+		  url: '//freegeoip.net/json/', 
+		  type: 'POST', 
+		  dataType: 'jsonp',
+		  success: function(json) {
 	    if (json) {
 	      y = json.latitude;
 	      x = json.longitude;
 	    }
 	    // Build the map
-	    var map = L.mapbox.map('map', 'landplanner.g7443phg', {scrollWheelZoom:false}).setView([y, x], 9);
+	    var map = L.mapbox.map('map', 'landplanner.ifnhcmb0', {scrollWheelZoom:false}).setView([y, x], 9);
 
 	    // Set form lat/lon fields from map center location
 	    $('#entry_80388879').attr('value', y);
@@ -132,7 +136,8 @@ onload="if(submitted) {window.location='http://cdb.io/1be11H7';}"></iframe>
 		  	$('#entry_338471973').attr('value', $.trim($(this).text()));
 		});
 
-	  });
+	  }
+	});
 </script>
 </body>
 </html>
