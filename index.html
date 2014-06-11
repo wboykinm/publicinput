@@ -12,7 +12,7 @@
       background:#375d81;
       background-size:100%;
       color:#fff;
-      margin:30;
+      margin:0;
       padding:0;
       font-weight:bold;
     }
@@ -37,7 +37,7 @@
     }
 
     iframe {
-      width:1000px;
+      width:1100px;
       height:600px;
     }
 
@@ -121,10 +121,54 @@
   </script>
 </head>
 <body>
-  <div>Mapping for public input. For free. On the web.</div>
-  <div>by Bill Morris<br><small>mapper at <a href="http://faraday.io" target="_blank">Faraday Inc</a></small></div>
-  <div><iframe width="400px" height="300px" src="form1/"></iframe></div>
-  <div>But enough of that</div>
+  <div><em>Mapping public input. For free. On the web.</em><br>June 11, 2014 - VT Mapping Forum</div>
+  <div>Bill Morris<br><small>mapper at <a href="http://faraday.io" target="_blank">Faraday Inc</a></small></div>
+  <div>Maps for what?</div>
+  <div>Crisis management</div>
+  <div><iframe src="http://google.org/crisismap/us-wildfires"></iframe></div>
+  <div>Environmental conservation</div>
+  <div><iframe src="http://imapinvasives.org/nyimi/report_invasives/"></iframe></div>
+  <div>Civic planning and outreach</div>
+  <div><iframe src="http://www.burlingtonvt.gov/public/map.php"></iframe></div>
+  <div>Some options for how to do this include . . .</div>
+  <div><a href="http://www.ushahidi.com/product/ushahidi/" target="_blank">Ushahidi</a></div>
+  <div><iframe src="https://vtirene.crowdmap.com/"></iframe></div>
+  <div><iframe src="https://crowdmap.com/map/chicchocs/"></iframe></div>
+  <div><a href="http://openplans.org/shareabouts/" target="_blank">Shareabouts</a></div>
+  <div><iframe src="http://suggest.divvybikes.com/"></iframe></div>
+  <div>The hacky, free, and (mostly) open-source way . . .</div>
+  <div><em>Browser Capabilities</em></div>
+  <div>HTML5 Geolocation</div>
+  <div><iframe src="map2/"></iframe></div>
+  <div>IP Location</div>
+  <div><iframe src="https://freegeoip.net/?q=65.183.134.83&map=1"></iframe></div>
+  <div>Search</div>
+  <div><iframe src="http://codeforbtv.org/votefinder/"></iframe></div>
+  <div>(Accuracy varies like a wandering coyote)</div>
+  <div>User-Selected Location</div>
+  <div><iframe src="http://bl.ocks.org/wboykinm/raw/7528178/"></iframe></div>
+  <div><em>Alert | </em> code ahead</div>
+  <div>We'll be using:</div>
+  <div><em>Github Pages</em> [Free]</div>
+  <div><em>Google Drive</em> [Free]</div>
+  <div><em>Bootstrap</em> [Free, Open-Source]</div>
+  <div><em>Leaflet</em> [Free, Open-Source]</div>
+  <div><em>Tabletop.js</em> [Free, Open-Source]</div>
+  <div>1.) Create a Google Form</div>
+  <div>2.) Fork <a href="" target="_blank">this github repository</a></div>
+  <div>3.) Copy some code: find the IDs for the questions in the source code of your google form</div>
+  <div>Things you'll need from that source (ctrl-f to find them):</div>
+  <div>embedUrl</div>
+  <div>form action</div>
+  <div>name="entry.<br>id="entry_<br><em>for each question and location field</em></div>
+  <div>4.) Confirm the survey responses are making it to the map</div>
+  <div><iframe src="form1/"></iframe></div>
+  <div>5.) <em>The hard part: </em>get the word out to the people whose opinions you want</div>
+  <div>Thanks!</div>
+  <div>Get in touch:<br><a href="mailto:bill@faraday.io">bill@faraday.io</a></div>
+  <div>P.S. My apologies for all of the embedded content. These links will probably age quickly and be inaccessible.</div>
+  <div>P.P.S. However the project shown here will be accessible in <a href="" target="_blank">this github repository</a> for as long as github is around</div>
+
 </body>
 </html>
 

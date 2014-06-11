@@ -1,0 +1,51 @@
+<html>
+  <body>
+    <!-- We'll need to include Google Maps, Handlebars for templating, and jQuery for general futzing about -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- Tabletop.js for accessing Google Spreadsheets and Mapsheet.js for mapping, of course -->
+    <script type="text/javascript" src="js/tabletop.js"></script>
+    <script type="text/javascript" src="js/mapsheet.js"></script>
+
+    <!-- This is where the map will go -->
+    <div id="map"></div>
+
+    <!-- Let's make the map not too big -->
+    <style>
+      #map {
+        width: 100%;
+        height: 100%;
+        position:absolute;
+      }
+    </style>
+
+    <!-- This is the popup you'll get when you click a marker. 
+         {{these}} are columns in your spreadsheet -->
+    <script id="popup-template" type="text/x-handlebars-template">
+      <h3>A response</h3>
+    </script>
+
+    <!-- Okay, time to do this! -->
+    <script type="text/javascript">
+      $(document).ready( function() {       
+        // Make sure the spreadsheet is published!
+        var published_spreadsheet_url = 'https://spreadsheets.google.com/feeds/list/1z9Mli76IKPuDOOt6XCXQ5sK0Pzt4NP8-1DCK9CVPxdo/html/public/values?sq=&alt=json'; 
+        // Let's get the popup template and compile it using Handlebars
+        var source   = $("#popup-template").html();
+        var template = Handlebars.compile(source);
+
+        // OK, now let's make the map
+        var map = Mapsheet({
+          key: published_spreadsheet_url,
+          element: "map",
+          provider: Mapsheet.Providers.MapBox,
+          popupTemplate: template
+        });
+      });
+    </script>
+  </body>
+</html>

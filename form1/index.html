@@ -40,13 +40,13 @@
 <body>
 
 	<!--ADD THE FORM EMBEDURL BELOW-->
-	<meta itemprop="embedUrl" content="https://docs.google.com/forms/d/17EeoLaAVeGrLYhOGyvy7-jC9ukc90F-UvrAMz_x_LUA/viewform?embedded=true">
+	<meta itemprop="embedUrl" content="https://docs.google.com/forms/d/1nh8Jx9cD1cA0uPXifO6pfBDZMkrsbqH2VVXgoHZkTI0/viewform?embedded=true">
 	
 	<!--ADD THE FORM RESPONSE ACTION HERE, WITH A REDIRECT-->
 	<script type="text/javascript">var submitted=false;</script>
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"     
-onload="if(submitted) {window.location='http://cdb.io/1be11H7';}"></iframe>
-	<form action="https://docs.google.com/forms/d/17EeoLaAVeGrLYhOGyvy7-jC9ukc90F-UvrAMz_x_LUA/formResponse" method="POST" id="ss-form" target="hidden_iframe" onsubmit="submitted=true;">
+onload="if(submitted) {window.location='../resultsmap/';}"></iframe>
+	<form action="https://docs.google.com/forms/d/1nh8Jx9cD1cA0uPXifO6pfBDZMkrsbqH2VVXgoHZkTI0/formResponse" method="POST" id="ss-form" target="hidden_iframe" onsubmit="submitted=true;">
 
 	  	<div class="container">
 	  		<div class="jumbotron starter-template">
@@ -59,7 +59,7 @@ onload="if(submitted) {window.location='http://cdb.io/1be11H7';}"></iframe>
 				  <button type="button" class="btn btn-xl btn-primary">Switchback</button>
 				  <button type="button" class="btn btn-xl btn-info">#9</button>
 				  <button type="button" class="btn btn-xl btn-primary">Heady Topper</button>
-				  <button type="button" class="btn btn-xl btn-info">If I tell you, it won't be hip and edgy anymore</button>
+				  <button type="button" class="btn btn-xl btn-info">If I tell you it won't be hip and edgy anymore</button>
 				</div>
 	  		</div>
 	  		<div class="starter-template">
@@ -79,11 +79,11 @@ onload="if(submitted) {window.location='http://cdb.io/1be11H7';}"></iframe>
 	  			THOSE IN THE SOURCE OF THE GOOGLE-HOSTED LIVE FORM-->
 
 	  			<!-- QUESTION 1 -->
-	  			<input type="hidden" name="entry.338471973" value="" id="entry_338471973">
+	  			<input type="hidden" name="entry.571450812" class="question1" value="" id="entry_571450812">
 
 	  			<!-- QUESTION 2: LAT/LONG -->
-	  			<input type="hidden" name="entry.80388879" value="" id="entry_80388879">
-				<input type="hidden" name="entry.510592791" value="" id="entry_510592791">
+	  			<input type="hidden" name="entry.1231909273" class="questionlat" value="" id="entry_1231909273">
+				<input type="hidden" name="entry.1858937989" class="questionlon" value="" id="entry_1858937989">
 
 				<!-- PAGE STUFF -->
 				<input type="hidden" name="pageNumber" value="0">
@@ -119,21 +119,21 @@ onload="if(submitted) {window.location='http://cdb.io/1be11H7';}"></iframe>
 	    var map = L.mapbox.map('map', 'landplanner.ifnhcmb0', {scrollWheelZoom:false}).setView([y, x], 9);
 
 	    // Set form lat/lon fields from map center location
-	    $('#entry_80388879').attr('value', y);
-        $('#entry_510592791').attr('value', x);
+	    $('.questionlat').attr('value', y);
+        $('.questionlon').attr('value', x);
 
         // Update these values as the map gets dragged around
         map.on('moveend', function(event) {
-		  	$('#entry_80388879').attr('value', map.getCenter().lat);
-        	$('#entry_510592791').attr('value', map.getCenter().lng);
+		  	$('.questionlat').attr('value', map.getCenter().lat);
+        	$('.questionlon').attr('value', map.getCenter().lng);
 		});
 
 		// Set the question choice active
-		$('.btn-info').click(function () {
-            $('.btn-info').removeClass('active');
+		$('.btn-xl').click(function () {
+            $('.btn-xl').removeClass('active');
             $(this).addClass('active');
 			// Then post the choice to the hidden input
-		  	$('#entry_338471973').attr('value', $.trim($(this).text()));
+		  	$('.question1').attr('value', $.trim($(this).text()));
 		});
 
 	  }
